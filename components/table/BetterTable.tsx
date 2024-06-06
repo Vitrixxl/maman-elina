@@ -35,6 +35,7 @@ import { User as UserType } from "@prisma/client";
 import DetailsUserModal from "./Modals/DetailsUserModal";
 import DeleteModal from "./Modals/DeleteModal";
 import EditUserModal from "./Modals/EditUserModal";
+import { requestAsyncStorage } from "next/dist/client/components/request-async-storage-instance";
 const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
     paused: "danger",
@@ -66,8 +67,14 @@ export default function App({ users }: { users: User[] }) {
 
     const headerColumns = React.useMemo(() => {
         if (visibleColumns === "all") return columns;
+        if (!columns.filter((column) => Array.from(visibleColumns).includes(column.uid))[0]) {
 
-        return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
+            return columns[0] = { name: "NAME", uid: "name" }
+
+        } else {
+
+            return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
+        }
     }, [visibleColumns]);
 
     const filteredItems = React.useMemo(() => {
@@ -209,15 +216,14 @@ export default function App({ users }: { users: User[] }) {
                                 </Button>
                             </DropdownTrigger>
                             <DropdownMenu
-                                disallowEmptySelection={false}
+                                disallowEmptySelection
                                 aria-label="Table Columns"
                                 closeOnSelect={false}
                                 selectedKeys={visibleColumns}
                                 selectionMode="multiple"
-
                                 onSelectionChange={setVisibleColumns}
                             >
-                                {visibleColumns && columns.map((column) => (
+                                {columns.map((column) => (
                                     <DropdownItem key={column.uid} className="capitalize">
                                         {capitalize(column.name)}
                                     </DropdownItem>
