@@ -66,15 +66,11 @@ export default function App({ users }: { users: User[] }) {
     const hasSearchFilter = Boolean(filterValue);
 
     const headerColumns = React.useMemo(() => {
-        if (visibleColumns === "all") return columns;
-        if (!columns.filter((column) => Array.from(visibleColumns).includes(column.uid))[0]) {
 
-            return columns[0] = { name: "NAME", uid: "name" }
 
-        } else {
 
-            return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
-        }
+        return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
+
     }, [visibleColumns]);
 
     const filteredItems = React.useMemo(() => {
