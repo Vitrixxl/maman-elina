@@ -1,10 +1,26 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import NavBar from "../components/NavBar";
-import Providers from "./Providers";
-import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from "next";
+import { Inter, Lato, Work_Sans } from "next/font/google";
+import localFont from '@next/font/local'
+import NavBar from "../components/Nav/NavBar";
+
+import { ThemeProvider } from "./Providers";
+import "./globals.css";
+const work_sans = localFont({
+
+  src: "../fonts/WorkSans-VariableFont_wght.ttf",
+  variable: "--font-work-sans",
+
+});
+
+const cabin = localFont({
+  src: "../fonts/Cabin-VariableFont_wdth,wght.ttf",
+  variable: "--font-cabin",
+});
+const monserrat = localFont({
+  src: "../fonts/Montserrat-VariableFont_wght.ttf",
+  variable: "--font-monserrat",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,10 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + " flex flex-col h-screen"}>
-        <NavBar />
-        <Providers >{children}</Providers>
-        <footer></footer>
+      <body className={cabin.variable + " flex flex-col h-screen "}>
+        <ThemeProvider >
+          <NavBar />
+          {children}
+
+        </ThemeProvider>
       </body>
     </html>
   );
