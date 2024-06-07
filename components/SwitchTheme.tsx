@@ -25,7 +25,7 @@ export default function ThemeButton() {
             variant="ghost"
             color="primary"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            className="p-2 border-none min-w-0 text-white"
+            className="p-2 border-none min-w-0 text-foreground"
         >
             {theme === "light" ? <MoonIcon className="size-full" /> : <SunIcon className="size-full" />}
         </Button>

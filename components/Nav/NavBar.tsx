@@ -26,7 +26,7 @@ export default function NavBar() {
                             variant="ghost"
                             color="primary"
 
-                            className="p-2 border-none min-w-0 text-white"
+                            className="p-2 border-none min-w-0 text-foreground"
                         >
 
                             <MailIcon className="size-full" />
@@ -37,7 +37,7 @@ export default function NavBar() {
 
                 <li className="">
                     <Input
-                        type="search"
+                        type="Search"
                         placeholder="Rechercher..."
                         size="lg"
                         color="default"

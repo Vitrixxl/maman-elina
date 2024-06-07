@@ -27,7 +27,7 @@ export default function LinkCarrousel() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: 100 }}
                     >
-                        <Link href={"/"} className="flex items-end gap-4 font-light font-p text-4xl text-foreground">Trouvez un expert en un clique <IoIosArrowRoundForward /></Link>
+                        <Link href={"/"} className="flex items-end gap-4 font-light font-p text-4xl text-foreground"><h2>Trouvez un <span className="font-medium text-primary">expert</span> en un clique</h2> <IoIosArrowRoundForward /></Link>
                     </m.div>
                 ) :
                     (
@@ -37,7 +37,7 @@ export default function LinkCarrousel() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 100 }}
                         >
-                            <Link href={"/"} className="flex items-end gap-4 h-fit font-extralight font-p text-4xl text-foreground" >Je veux rentrer dans le reseau  <IoIosArrowRoundForward /></Link>
+                            <Link href={"/"} className="flex items-end gap-4 h-fit font-extralight font-p text-4xl text-foreground" ><h2>Je veux rentrer dans le<span className="font-medium text-primary"> reseau</span></h2><IoIosArrowRoundForward /></Link>
                         </m.div>)
             }
         </AnimatePresence>
