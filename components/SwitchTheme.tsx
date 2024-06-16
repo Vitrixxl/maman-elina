@@ -23,7 +23,7 @@ export default function ThemeButton() {
         <Button
             size="lg"
             variant="ghost"
-            color="primary"
+            color="secondary"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             className="p-2 border-none min-w-0 text-foreground"
         >
